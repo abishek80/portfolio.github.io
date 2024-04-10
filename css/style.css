@@ -12195,6 +12195,10 @@ h5,
   position: relative;
 }
 
+.fa-2x {
+  font-size: 35px !important;
+}
+
 .bannerSize {
   height: 85vh;
   display: flex;
