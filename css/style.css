@@ -359,6 +359,22 @@ progress {
   -webkit-appearance: button;
 }
 
+label.error {
+  color: red;
+  font-size: 13px;
+}
+
+.successMessage {
+  display: none;
+  text-align: center;
+  background: #0ed016;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 150px;
+}
+
 output {
   display: inline-block;
 }
