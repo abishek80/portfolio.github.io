@@ -97,6 +97,7 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: #ececec;
 }
 
 abbr[title],
@@ -122,11 +123,10 @@ dl {
   margin-bottom: 1rem;
 }
 
-ol ol,
-ul ul,
-ol ul,
-ul ol {
+ol li,
+ul li {
   margin-bottom: 0;
+  color: #ececec;
 }
 
 dt {
@@ -2225,6 +2225,7 @@ pre code {
   .table-responsive-sm>.table-bordered {
     border: 0;
   }
+
   .services-1 {
     padding: .5rem !important;
   }
@@ -11744,13 +11745,13 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 a:hover,
 a:focus {
   text-decoration: none;
-  color: #ffbd39;
+  color: #ffc107;
   outline: none !important;
 }
 
@@ -11770,7 +11771,7 @@ h5,
 }
 
 .text-primary {
-  color: #ffbd39 !important;
+  color: #ffc107 !important;
 }
 
 .ftco-navbar-light {
@@ -11854,7 +11855,7 @@ h5,
   height: 2px;
   bottom: 0;
   left: 0;
-  background: #ffbd39;
+  background: #ffc107;
   visibility: visible;
   -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
@@ -11889,12 +11890,12 @@ h5,
 
 .ftco-navbar-light .navbar-nav>.nav-item.cta>a {
   color: #fff;
-  border: 1px solid #ffbd39;
+  border: 1px solid #ffc107;
   padding-top: .7rem;
   padding-bottom: .7rem;
   padding-left: 18px;
   padding-right: 18px;
-  background: #ffbd39;
+  background: #ffc107;
   margin-top: 0;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -11908,8 +11909,8 @@ h5,
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item.cta>a:hover {
-  background: #ffbd39;
-  border: 1px solid #ffbd39;
+  background: #ffc107;
+  border: 1px solid #ffc107;
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item.cta.cta-colored a {
@@ -11920,7 +11921,7 @@ h5,
 .ftco-navbar-light .navbar-nav>.nav-item .nav-link.active {
   background: transparent;
   background: none;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item .nav-link.active span:before {
@@ -11932,7 +11933,7 @@ h5,
 
 @media (max-width: 991.98px) {
   .ftco-navbar-light .navbar-nav>.nav-item.active>a {
-    color: #ffbd39;
+    color: #ffc107;
   }
 }
 
@@ -11949,7 +11950,7 @@ h5,
 .ftco-navbar-light .navbar-toggler:hover,
 .ftco-navbar-light .navbar-toggler:focus {
   text-decoration: none;
-  color: #ffbd39;
+  color: #ffc107;
   outline: none !important;
 }
 
@@ -11970,12 +11971,12 @@ h5,
 }
 
 .ftco-navbar-light.scrolled .nav-item.active>a {
-  color: #ffbd39 !important;
+  color: #ffc107 !important;
 }
 
 .ftco-navbar-light.scrolled .nav-item.cta>a {
   color: #fff !important;
-  background: #ffbd39;
+  background: #ffc107;
   border: none !important;
   padding-top: 0.5rem !important;
   padding-bottom: .5rem !important;
@@ -11994,7 +11995,7 @@ h5,
 }
 
 .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
-  border-color: #ffbd39;
+  border-color: #ffc107;
 }
 
 @media (max-width: 991.98px) {
@@ -12022,7 +12023,7 @@ h5,
 }
 
 .ftco-navbar-light.scrolled .nav-link.active {
-  color: #ffbd39 !important;
+  color: #ffc107 !important;
 }
 
 .ftco-navbar-light.scrolled.awake {
@@ -12219,12 +12220,12 @@ h5,
 }
 
 .bannerSize {
-  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 75px;
+  padding-top: 150px;
+  padding-bottom: 50px;
 }
 
 @media (min-width: 768px) {
@@ -12274,7 +12275,7 @@ h5,
   font-size: 14px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .one-forth .text {
@@ -12291,7 +12292,7 @@ h5,
 
 .one-forth h1 span {
   font-weight: 800;
-  color: #ffbd39;
+  color: #ffc107;
   width: 100%;
   display: inline;
 }
@@ -12333,7 +12334,7 @@ h5,
 }
 
 .one-forth .btn-custom {
-  bordeR: 1px solid #ffbd39;
+  bordeR: 1px solid #ffc107;
   padding: 5px 20px;
   text-transform: uppercase;
   font-size: 12px;
@@ -12396,7 +12397,7 @@ h5,
 .owl-carousel.home-slider .owl-nav .owl-prev:focus span:before {
   font-size: 20px;
   margin-top: 7px;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .owl-carousel.home-slider .owl-nav .owl-next {
@@ -12420,7 +12421,7 @@ h5,
 .owl-carousel.home-slider .owl-nav .owl-next:focus span:before {
   font-size: 24px;
   margin-top: 7px;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .owl-carousel.home-slider .owl-dots {
@@ -12524,12 +12525,12 @@ h5,
 
 .slider-text .breadcrumbs span a:hover,
 .slider-text .breadcrumbs span a:focus {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .slider-text .breadcrumbs span a:hover i,
 .slider-text .breadcrumbs span a:focus i {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .slider-text .bread {
@@ -12547,7 +12548,7 @@ h5,
 }
 
 .bg-primary {
-  background: #ffbd39;
+  background: #ffc107;
 }
 
 .btn {
@@ -12572,26 +12573,26 @@ h5,
 }
 
 .btn.btn-primary {
-  background: #ffbd39;
-  border: 1px solid #ffbd39 !important;
+  background: #ffc107;
+  border: 1px solid #ffc107 !important;
   color: #000000 !important;
 }
 
 .btn.btn-primary:hover {
-  border: 1px solid #ffbd39 !important;
-  background: #ffbd39 !important;
+  border: 1px solid #ffc107 !important;
+  background: #ffc107 !important;
   color: #000000 !important;
 }
 
 .btn.btn-primary.btn-outline-primary {
-  border: 2px solid #ffbd39 !important;
+  border: 2px solid #ffc107 !important;
   background: transparent !important;
-  color: #ffbd39 !important;
+  color: #ffc107 !important;
 }
 
 .btn.btn-primary.btn-outline-primary:hover {
   border: 2px solid transparent !important;
-  background: #ffbd39 !important;
+  background: #ffc107 !important;
   color: #fff !important;
 }
 
@@ -12639,7 +12640,7 @@ h5,
 
 .btn.btn-white.btn-outline-white:hover {
   border: 1px solid transparent;
-  background: #ffbd39;
+  background: #ffc107;
   color: #fff;
 }
 
@@ -12692,14 +12693,13 @@ h5,
 
 .ftco-about .counter-wrap .text p span.number {
   font-weight: 600;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .resume-wrap {
   width: 100%;
-  margin-bottom: 30px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
+  padding: 30px 30px 40px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -12709,7 +12709,7 @@ h5,
 .resume-wrap .date {
   font-weight: 900;
   font-size: 26px;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .resume-wrap h2 {
@@ -12726,6 +12726,12 @@ h5,
 .iconImg {
   width: 90px;
   height: 90px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.storyline-iconImg {
+  width: 150px;
   object-fit: contain;
   margin-bottom: 15px;
 }
@@ -12748,7 +12754,7 @@ h5,
 .services-1 .icon i {
   font-size: 60px;
   line-height: 1.0;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .services-1 .desc h3 {
@@ -12769,7 +12775,7 @@ h5,
   content: '';
   width: 30px;
   height: 1px;
-  background: #ffbd39;
+  background: #ffc107;
   margin: 0 auto;
 }
 
@@ -12788,12 +12794,12 @@ h5,
   text-transform: uppercase;
   font-size: 12px;
   margin-bottom: 10px;
-  color: #ffbd39;
+  color: #ffc107;
   font-weight: 800;
 }
 
 .services-1:hover {
-  background: #ffbd39;
+  background: #ffc107;
 }
 
 .services-1:hover .icon i {
@@ -12829,7 +12835,7 @@ h5,
 }
 
 .progress-bar {
-  background: #ffbd39;
+  background: #ffc107;
   -webkit-box-shadow: none;
   box-shadow: none;
   font-size: 12px;
@@ -12852,7 +12858,7 @@ h5,
   width: 34px;
   height: 34px;
   content: '';
-  background: #ffbd39;
+  background: #ffc107;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -12870,7 +12876,7 @@ h5,
 }
 
 .ftco-hireme {
-  background: #ffbd39;
+  background: #ffc107;
   z-index: -1;
 }
 
@@ -12881,7 +12887,7 @@ h5,
 }
 
 .ftco-hireme h2 span {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 @media (min-width: 992px) {
@@ -12907,9 +12913,11 @@ h5,
   .project {
     height: 170px !important;
   }
+
   .hero {
     padding-top: 0px !important;
   }
+
   .project.img-2 {
     height: 285px;
   }
@@ -12953,7 +12961,7 @@ h5,
   bottom: 0;
   content: '';
   opacity: 0;
-  background: #ffbd39;
+  background: #ffc107;
   z-index: -1;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -13068,7 +13076,7 @@ textarea.form-control {
 }
 
 .bg-primary {
-  background: #ffbd39 !important;
+  background: #ffc107 !important;
 }
 
 .about-author {
@@ -13204,7 +13212,7 @@ textarea.form-control {
 
 .footer-small-nav>li a:hover,
 .footer-small-nav>li a:focus {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .media .ftco-icon {
@@ -13212,7 +13220,7 @@ textarea.form-control {
 }
 
 .media .ftco-icon span {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 #map {
@@ -13273,7 +13281,7 @@ textarea.form-control {
   letter-spacing: 3px;
 }
 
-.heading-section h1.big {
+.heading-section h3.big {
   position: absolute;
   top: 0px;
   left: 0;
@@ -13283,7 +13291,7 @@ textarea.form-control {
   font-weight: 900;
 }
 
-.heading-section h1.big.big-2 {
+.heading-section h3.big.big-2 {
   right: 0;
 }
 
@@ -13376,7 +13384,7 @@ textarea.form-control {
 .ftco-counter .text strong.number {
   font-weight: 700;
   font-size: 30px;
-  color: #ffbd39;
+  color: #ffc107;
   display: block;
 }
 
@@ -13396,7 +13404,7 @@ textarea.form-control {
   display: block;
   font-size: 72px;
   font-weight: bold;
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .ftco-counter .ftco-label {
@@ -13450,7 +13458,7 @@ textarea.form-control {
 .blog-entry .text .heading a:hover,
 .blog-entry .text .heading a:focus,
 .blog-entry .text .heading a:active {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .blog-entry .meta {
@@ -13463,15 +13471,15 @@ textarea.form-control {
 }
 
 .blog-entry .meta span {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .blog-entry .meta a {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .blog-entry .meta a:hover {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .block-23 ul {
@@ -13585,7 +13593,7 @@ textarea.form-control {
 }
 
 .contact-section .box .icon span {
-  color: #ffbd39;
+  color: #ffc107;
   font-size: 30px;
 }
 
@@ -13662,7 +13670,7 @@ textarea.form-control {
 .block-21 .text .heading a:hover,
 .block-21 .text .heading a:active,
 .block-21 .text .heading a:focus {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .block-21 .text .meta>div {
@@ -13762,7 +13770,7 @@ textarea.form-control {
   font-size: 13px;
   letter-spacing: .1em;
   color: rgba(255, 255, 255, 0.3);
-  color: #ffbd39;
+  color: #ffc107;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -13859,7 +13867,7 @@ textarea.form-control {
 .categories li a:focus,
 .sidelink li a:hover,
 .sidelink li a:focus {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .categories li.active a,
@@ -13997,7 +14005,7 @@ textarea.form-control {
   content: '';
   position: absolute;
   width: 2px;
-  background: #ffbd39;
+  background: #ffc107;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -14029,7 +14037,7 @@ textarea.form-control {
   top: 48px;
   right: -8px;
   background: #242424;
-  border: 2px solid #ffbd39;
+  border: 2px solid #ffc107;
   border-radius: 16px;
   z-index: 1;
 }
@@ -14061,7 +14069,7 @@ textarea.form-control {
   top: 44px;
   font-size: 16px;
   font-weight: 600;
-  color: #ffbd39;
+  color: #ffc107;
   text-transform: uppercase;
   letter-spacing: 1px;
   z-index: 1;
@@ -14391,7 +14399,7 @@ textarea.form-control {
 }
 
 .testimonial .testimonial-text h3 {
-  color: #ffbd39;
+  color: #ffc107;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
@@ -14824,7 +14832,7 @@ textarea.form-control {
 
 .progress .progress-bar {
   width: 0px;
-  background: #ffbd39;
+  background: #ffc107;
   border-radius: 10px;
   transition: 2s;
 }
@@ -14849,7 +14857,7 @@ textarea.form-control {
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
   position: fixed;
   width: 100%;
-  background-color: #000;
+  background-color: #2d2d2d;
   z-index: 3;
 }
 
@@ -14862,7 +14870,6 @@ textarea.form-control {
 
 .header li a {
   display: block;
-  padding: 20px 25px;
   text-decoration: none;
 }
 
@@ -14896,7 +14903,7 @@ textarea.form-control {
 }
 
 .txt-yellow {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .header .menu-icon .navicon {
@@ -14957,10 +14964,6 @@ textarea.form-control {
 /* 48em = 768px */
 
 @media screen and (max-width: 991px) {
-  .header li a {
-    padding: 20px 10px;
-  }
-  
   .one-forth h1 span {
     display: inline-block;
   }
@@ -14982,10 +14985,13 @@ textarea.form-control {
   }
 }
 
-.logo {
-  padding: 15px 20px;
-  position: absolute;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
+.logo-img {
+  width: 200px;
+  padding: 10px 0px;
+}
+
+.footer-logo-img {
+  width: 250px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
