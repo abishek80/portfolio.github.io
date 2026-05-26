@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abishek80.github.io/portfolio.github.io/sitemap.xml
