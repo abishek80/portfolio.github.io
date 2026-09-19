@@ -441,12 +441,13 @@ $(".testimonials-carousel").owlCarousel({
       );
     }
 
-    // 2. Google Sheet Backup Fetch
+    // 2. Google Sheet Backup Fetch (URLSearchParams for 100% parameter parsing in Apps Script)
     if (sheetUrl && sheetUrl.trim() !== '') {
+      var sheetParams = new URLSearchParams(formData);
       fetchTasks.push(
         fetch(sheetUrl, {
           method: 'POST',
-          body: formData,
+          body: sheetParams,
           mode: 'no-cors'
         })
       );
