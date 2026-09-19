@@ -330,7 +330,22 @@ $(".testimonials-carousel").owlCarousel({
   };
   updateDynamicExperience();
 
-  // Contact Form Submission Handler (FormSubmit AJAX -> antonyabishek80@gmail.com + Google Sheet Backup)
+  // Helper function to show field error note
+  function showFieldError($el, message) {
+    $el.addClass('is-invalid');
+    $el.siblings('.field-error').text(message).fadeIn(200);
+  }
+
+  // Clear errors live when user types
+  $('#contactForm input, #contactForm textarea').on('input keyup change', function() {
+    var $el = $(this);
+    if ($el.val().trim() !== '') {
+      $el.removeClass('is-invalid');
+      $el.siblings('.field-error').fadeOut(150).text('');
+    }
+  });
+
+  // Contact Form Submission Handler (Validation + FormSubmit AJAX + Google Sheet Backup)
   $('#contactForm').on('submit', function(e) {
     e.preventDefault();
 
@@ -339,10 +354,77 @@ $(".testimonials-carousel").owlCarousel({
     var originalBtnVal = $submitBtn.val();
     var sheetUrl = $form.attr('data-sheet-url');
 
-    $submitBtn.val('Sending...').prop('disabled', true);
+    // Reset previous error messages
+    $form.find('.form-control').removeClass('is-invalid');
+    $form.find('.field-error').hide().text('');
     $('.successMessage, .errorMessage').hide();
 
-    // 1. Submit to Google Sheet Backup (if sheetUrl is provided)
+    // Field references
+    var $name = $('#name');
+    var $email = $('#email');
+    var $mobile = $('#mobile');
+    var $subject = $('#subject');
+    var $message = $('#message');
+
+    var isValid = true;
+    var firstInvalid = null;
+
+    // 1. Validate Name
+    if ($.trim($name.val()) === '') {
+      showFieldError($name, 'Please enter your name.');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = $name;
+    }
+
+    // 2. Validate Email
+    var emailVal = $.trim($email.val());
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailVal === '') {
+      showFieldError($email, 'Please enter your email address.');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = $email;
+    } else if (!emailRegex.test(emailVal)) {
+      showFieldError($email, 'Please enter a valid email address (e.g. name@domain.com).');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = $email;
+    }
+
+    // 3. Validate Mobile Number
+    var mobileVal = $.trim($mobile.val());
+    var phoneRegex = /^[0-9+\-\s()]{7,15}$/;
+    if (mobileVal === '') {
+      showFieldError($mobile, 'Please enter your mobile number.');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = $mobile;
+    } else if (!phoneRegex.test(mobileVal) || mobileVal.replace(/\D/g, '').length < 7) {
+      showFieldError($mobile, 'Please enter a valid mobile number (e.g. 10 digits).');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = $mobile;
+    }
+
+    // 4. Validate Subject
+    if ($.trim($subject.val()) === '') {
+      showFieldError($subject, 'Please enter a subject.');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = $subject;
+    }
+
+    // 5. Validate Message
+    if ($.trim($message.val()) === '') {
+      showFieldError($message, 'Please enter your message.');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = $message;
+    }
+
+    // If validation fails, focus first invalid field and exit
+    if (!isValid) {
+      if (firstInvalid) firstInvalid.focus();
+      return false;
+    }
+
+    $submitBtn.val('Sending...').prop('disabled', true);
+
+    // Submit to Google Sheet Backup (if sheetUrl is provided)
     if (sheetUrl && sheetUrl.trim() !== '') {
       try {
         var formData = new FormData($form[0]);
@@ -359,7 +441,7 @@ $(".testimonials-carousel").owlCarousel({
       }
     }
 
-    // 2. Submit to Email Service (FormSubmit AJAX)
+    // Submit to Email Service (FormSubmit AJAX)
     $.ajax({
       url: $form.attr('action'),
       method: 'POST',
@@ -367,6 +449,7 @@ $(".testimonials-carousel").owlCarousel({
       dataType: 'json',
       success: function(response) {
         $form[0].reset();
+        $form.find('.form-control').removeClass('is-invalid');
         $('.successMessage').fadeIn();
         $submitBtn.val(originalBtnVal).prop('disabled', false);
         setTimeout(function() {
@@ -374,7 +457,6 @@ $(".testimonials-carousel").owlCarousel({
         }, 8000);
       },
       error: function() {
-        // Even if FormSubmit has an error, if sheetUrl was sent, reset and show success or error
         $('.errorMessage').fadeIn();
         $submitBtn.val(originalBtnVal).prop('disabled', false);
       }

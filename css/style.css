@@ -15001,3 +15001,16 @@ textarea.form-control {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
+/* Contact Form Field Validation Styles */
+.contact-form .form-control.is-invalid {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 77, 77, 0.25) !important;
+}
+
+.field-error {
+  color: #ff4d4d !important;
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+}
