@@ -292,9 +292,94 @@ $(".testimonials-carousel").owlCarousel({
     fixedContentPos: false
   });
 
+  // Dynamic Experience Calculator (Joining Date: July 18, 2022)
+  var updateDynamicExperience = function() {
+    var joiningDate = new Date(2022, 6, 18); // July 18, 2022
+    var now = new Date();
 
+    var years = now.getFullYear() - joiningDate.getFullYear();
+    var months = now.getMonth() - joiningDate.getMonth();
+    var days = now.getDate() - joiningDate.getDate();
 
+    if (days < 0) {
+      months--;
+    }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
 
+    // VenPep Experience duration (e.g. "4Years 2Months")
+    var venpepText = '';
+    if (years > 0 && months > 0) {
+      venpepText = years + 'Years ' + months + 'Months';
+    } else if (years > 0) {
+      venpepText = years + (years === 1 ? 'Year' : 'Years');
+    } else {
+      venpepText = months + (months === 1 ? 'Month' : 'Months');
+    }
+
+    $('#venpep-exp-duration').text(venpepText);
+
+    // Total Industry Experience (+8 months prior experience at Adiv Technologies)
+    var totalMonths = (years * 12 + months) + 8;
+    var totalYears = Math.floor(totalMonths / 12);
+    var expYearsText = totalYears + '+';
+
+    $('.dynamic-exp-years').text(expYearsText);
+  };
+  updateDynamicExperience();
+
+  // Contact Form Submission Handler (FormSubmit AJAX -> antonyabishek80@gmail.com + Google Sheet Backup)
+  $('#contactForm').on('submit', function(e) {
+    e.preventDefault();
+
+    var $form = $(this);
+    var $submitBtn = $('#submitBtn');
+    var originalBtnVal = $submitBtn.val();
+    var sheetUrl = $form.attr('data-sheet-url');
+
+    $submitBtn.val('Sending...').prop('disabled', true);
+    $('.successMessage, .errorMessage').hide();
+
+    // 1. Submit to Google Sheet Backup (if sheetUrl is provided)
+    if (sheetUrl && sheetUrl.trim() !== '') {
+      try {
+        var formData = new FormData($form[0]);
+        formData.append('timestamp', new Date().toLocaleString());
+        fetch(sheetUrl, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+        }).catch(function(err) {
+          console.warn('Google Sheet logging error:', err);
+        });
+      } catch (err) {
+        console.warn('Google Sheet backup fetch failed:', err);
+      }
+    }
+
+    // 2. Submit to Email Service (FormSubmit AJAX)
+    $.ajax({
+      url: $form.attr('action'),
+      method: 'POST',
+      data: $form.serialize(),
+      dataType: 'json',
+      success: function(response) {
+        $form[0].reset();
+        $('.successMessage').fadeIn();
+        $submitBtn.val(originalBtnVal).prop('disabled', false);
+        setTimeout(function() {
+          $('.successMessage').fadeOut();
+        }, 8000);
+      },
+      error: function() {
+        // Even if FormSubmit has an error, if sheetUrl was sent, reset and show success or error
+        $('.errorMessage').fadeIn();
+        $submitBtn.val(originalBtnVal).prop('disabled', false);
+      }
+    });
+  });
 
 })(jQuery);
 

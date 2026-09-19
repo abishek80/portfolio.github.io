@@ -12730,6 +12730,12 @@ h5,
   margin-bottom: 15px;
 }
 
+.tool-iconImg {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
 .storyline-iconImg {
   width: 150px;
   object-fit: contain;
