@@ -336,6 +336,11 @@ $(".testimonials-carousel").owlCarousel({
     $el.siblings('.field-error').text(message).fadeIn(200);
   }
 
+  // Restrict mobile input to digits only in real-time (Max 10 digits)
+  $('#mobile').on('input keyup paste', function() {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+  });
+
   // Clear errors live when user types
   $('#contactForm input, #contactForm textarea').on('input keyup change', function() {
     var $el = $(this);
@@ -389,15 +394,14 @@ $(".testimonials-carousel").owlCarousel({
       if (!firstInvalid) firstInvalid = $email;
     }
 
-    // 3. Validate Mobile Number
+    // 3. Validate Mobile Number (Digits Only, 10 Digits)
     var mobileVal = $.trim($mobile.val());
-    var phoneRegex = /^[0-9+\-\s()]{7,15}$/;
     if (mobileVal === '') {
       showFieldError($mobile, 'Please enter your mobile number.');
       isValid = false;
       if (!firstInvalid) firstInvalid = $mobile;
-    } else if (!phoneRegex.test(mobileVal) || mobileVal.replace(/\D/g, '').length < 7) {
-      showFieldError($mobile, 'Please enter a valid mobile number (e.g. 10 digits).');
+    } else if (!/^\d{10}$/.test(mobileVal)) {
+      showFieldError($mobile, 'Please enter a valid 10-digit mobile number (digits only).');
       isValid = false;
       if (!firstInvalid) firstInvalid = $mobile;
     }
