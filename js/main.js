@@ -424,30 +424,37 @@ $(".testimonials-carousel").owlCarousel({
 
     $submitBtn.val('Sending...').prop('disabled', true);
 
-    // Submit to Google Sheet Backup (if sheetUrl is provided)
+    var emailUrl = $form.attr('action');
+    var formData = new FormData($form[0]);
+    formData.append('timestamp', new Date().toLocaleString());
+
+    var fetchTasks = [];
+
+    // 1. Email Service Fetch (FormSubmit)
+    if (emailUrl) {
+      fetchTasks.push(
+        fetch(emailUrl, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        })
+      );
+    }
+
+    // 2. Google Sheet Backup Fetch
     if (sheetUrl && sheetUrl.trim() !== '') {
-      try {
-        var formData = new FormData($form[0]);
-        formData.append('timestamp', new Date().toLocaleString());
+      fetchTasks.push(
         fetch(sheetUrl, {
           method: 'POST',
           body: formData,
           mode: 'no-cors'
-        }).catch(function(err) {
-          console.warn('Google Sheet logging error:', err);
-        });
-      } catch (err) {
-        console.warn('Google Sheet backup fetch failed:', err);
-      }
+        })
+      );
     }
 
-    // Submit to Email Service (FormSubmit AJAX)
-    $.ajax({
-      url: $form.attr('action'),
-      method: 'POST',
-      data: $form.serialize(),
-      dataType: 'json',
-      success: function(response) {
+    // Execute both requests simultaneously using Promise.allSettled
+    Promise.allSettled(fetchTasks)
+      .then(function(results) {
         $form[0].reset();
         $form.find('.form-control').removeClass('is-invalid');
         $('.successMessage').fadeIn();
@@ -455,12 +462,12 @@ $(".testimonials-carousel").owlCarousel({
         setTimeout(function() {
           $('.successMessage').fadeOut();
         }, 8000);
-      },
-      error: function() {
+      })
+      .catch(function(err) {
+        console.error('Submission error:', err);
         $('.errorMessage').fadeIn();
         $submitBtn.val(originalBtnVal).prop('disabled', false);
-      }
-    });
+      });
   });
 
 })(jQuery);
